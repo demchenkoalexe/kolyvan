@@ -1,0 +1,20 @@
+{% block content %}
+
+{% load staticfiles %}
+<div class="container-fluid card-deck alert">
+	<div class="row">
+	  <div class="card col-xs-12 col-sm-6 col-md-6 col-lg-3">
+		  {% load staticfiles %}
+		  {% if image1 %}
+		  	<img src="{% static image1 %}" class="card-img-top" alt="{{products}}">
+		  {% endif %}
+		<div class="card-body">
+		  <h5 class="card-title text-center">{{products}}</h5>
+		  <p class="card-text text-center">{{description}}</p>
+		  <a href="product.html" class="btn btn-primary">Подробнее</a>
+		</div>
+	  </div>
+	</div>
+</div>
+
+{% endblock %}
