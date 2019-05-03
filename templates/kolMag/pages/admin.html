@@ -1,18 +1,49 @@
 {% block content %}
 
+<div>
+	<button class="btn btn-primary btn-lg" onclick="addProduct()" style="margin: 10px;">Добавить новое изделие</button>
+	<button class="btn btn-success btn-lg" style="margin: 10px;">Добавить нового автора</button>
+	<button class="btn btn-info btn-lg" style="margin: 10px;">Добавить новый материал</button>
+</div>
+
+{% load staticfiles %}
 <div class="container-fluid card-deck alert">
 	<div class="row">
-	  <div class="card col-xs-12 col-sm-6 col-md-6 col-lg-3">
-		<img src="../image/main.jpg" class="card-img-top" alt="Большая колыванская ваза">
-		<div class="card-body">
-		  <h5 class="card-title text-center">Большая колыванская ваза</h5>
-		  <p class="card-text text-center">Большая колыванская ваза (иногда называемая в популярных источниках «царицей ваз») из зелёно-волнистой яшмы — произведение камнерезного искусства, экспонирующееся в государственном Эрмитаже. Вес каменного изделия составляет 19 тонн. Высота вазы с пьедесталом — 2,57 м, большой диаметр составляет 5,04 м, а малый — 3,22 м. Это самая большая ваза в мире.</p>
-		  <a href="product.html" class="btn btn-primary">Подробнее</a>
-		  <a href="admin_edit.html" class="btn btn-primary">Изменить</a>
-		  <a href="#" class="btn btn-danger">Удалить</a>
+	{% for item in stoneProduct %}
+		<div class="card col-xs-12 col-sm-6 col-md-6 col-lg-3">
+			{% if item.image %}
+					<img src="{% static item.image %}" class="card-img-top" alt="{{item.name}}">
+			{% endif %}
+			<div class="card-body">
+				<h5 class="card-title text-center">{{item.name}}</h5>
+				<p class="card-text text-center">{{item.description}}</p>
+				<form action="product" method="POST" style="margin: 10px;">
+					<input type="hidden" name="author" value="{{ item.id_author_id }}">
+					<input type="hidden" name="stone" value="{{ item.id_list_materials_id }}">
+					<button type="submit" class="btn btn-primary" name="view" value="{{ item.id }}">Подробнее</button>
+				</form>
+				<form action="editAdmin" method="POST" style="margin: 10px;">
+					<input type="hidden" name="author" value="{{ item.id_author_id }}">
+					<input type="hidden" name="stone" value="{{ item.id_list_materials_id }}">
+					<button type="submit" class="btn btn-warning" name="edit" value="{{ item.id }}">Изменить</button>
+				</form>
+				<button class="btn btn-danger" style="margin: 10px;" onclick="deleteReal('{{ item.id }}')">Удалить</button>
+			</div>
 		</div>
-	  </div>
+	{% endfor %}
 	</div>
 </div>
+
+<script type="text/javascript">
+	function addProduct() {
+		location.href = "/addProduct";
+	}
+	function deleteReal(id) {
+		var isAdmin = confirm("Действительно хотите удалить?");
+		if (isAdmin) {
+			location.href = "/delete?id=" + id;
+		}
+	}
+</script>
 
 {% endblock %}

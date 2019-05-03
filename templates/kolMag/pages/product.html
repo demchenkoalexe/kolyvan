@@ -1,96 +1,24 @@
-<!doctype html>
-<html lang="ru">
-	<head>
-	    <!-- Required meta tags -->
-	    <meta charset="utf-8">
-	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% block content %}
 
-	    <!-- Bootstrap CSS -->
-	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+{% load staticfiles %}
 
-	    <title>Колыванский завод</title>
-
-	    <!-- Подключение своего CSS файла -->
-	    <link rel="stylesheet" href="../css/main.css">
-    </head>
-
-	<body>
-	  	<!-- Создание шапки сайта -->
-	  	<!-- navbar - для создания самой шапки, navbar-expand-md - указываем, что шапка на весь экран (большая), 
-	  		navbar-light - светлая, bg-light - текст тёмный, шапка светлая, sticky-top - шапка прикреплена к верху страницы -->
-	  	<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top>
-	  		<div class="container-fluid">
-	  			<!-- Блок растянут на всю ширину экрана, в нём лого и кнопка с меню -->
-	  			<a href="#" class="navbar-brad">
-	  				<img src="../image/logo.png">
-	  				<!-- navbar-brad - логотип поместим в шапку сайта -->
-	  			</a>
-
-	  			<!-- Создание кнопки "Меню" для маленьких экранов 
-	  				data-toggle="collapse" - кнопка отвечает за раскрытие меню
-	  				data-target - ссылка на объект, который мы будем раскрывать-->
-	  			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-	  				<!-- navbar-toggler-icon - иконка меню -->
-	  				<span class="navbar-toggler-icon"></span>
-	  				<!-- Создаём меню -->
-	  			</button>
-	  			<!-- navbar-collapse - чтобы меню пряталось на маленьких и показывалось на больших устройствах -->
-				<div class="collapse navbar-collapse" id="navbarResponsive">
-					<!-- ml-auto - была прижата сбоку справа или по центру в развёрнутом виде -->
-					<ul class="navbar-nav mr-auto">
-						<li class="nav-item">
-							<a href="../index.html" class="nav-link">Главная</a>
-						</li>
-						<li class="nav-item active">
-							<a href="list_products.html" class="nav-link">Изделия</a>
-						</li>
-						<li class="nav-item">
-							<a href="#" class="nav-link">Камни</a>
-						</li>
-						<li class="nav-item">
-							<a href="#" class="nav-link">Авторы и мастера</a>
-						</li>
-						<li class="nav-item">
-							<a href="#" class="nav-link">Контакты</a>
-						</li>
-						<li class="nav-item">
-							<a href="admin.html" class="nav-link">Администрирование</a>
-						</li>
-					</ul>
-					<!-- <form class="form-inline my-2 my-lg-0">
-				    	<input class="form-control mr-sm-2" type="search" placeholder="Например, щегол" aria-label="Поиск">
-				      	<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
-				    </form> -->
-				</div>
-	  		</div>
-	  	</nav>
-
-	  	<div class="container-fluid alert">
-	  		<div class="row">
-		  	  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-2">
-		  	  	<img src="../image/main.jpg" class="img-fluid" alt="Большая колыванская ваза">
-		  	  </div>
-			  <div class="col-xs-12 col-sm-8 col-md-8 col-lg-10">
-			    <h5>Большая колыванская ваза</h5>
-			    <p>В 1815 году на ревневской каменоломне Алтайского горного округа рабочие под руководством И. С. Колычева расчистили от осадочных пород довольно крупный утёс зелёно-волнистой яшмы. От него начали отделять камни, пригодные для создания больших чаш. Через четыре года, в той же каменоломне был обнаружен монолитный 11-метровый участок. От этой находки удалось отделить монолит длиной 8,5 м, который из-за трещины пришлось разделить на две неравные части. Пригодной для работы была признана бо́льшая часть камня, имевшая длину 5,6 м.
-
-				Вскоре после этого управляющий Колыванской фабрики М. С. Лаулин представил Кабинету Александра I модель и чертежи добытого монолита яшмы. 21 ноября 1820 года из Петербурга пришёл ответ с рисунками и предписанием об изготовлении эллипсовидной чаши. Автором проекта стал архитектор Гваренги.
-
-				К работам приступили в феврале 1828 года. С помощью 400 рабочих камень был вытащен к каменотёсному сараю и поднят на метровую высоту. Первичной обработкой монолита занимались около 100 мастеров, после чего в 1830 году камень уложили на дровни и вручную, силами 567 человек, передвинули глыбу на 30 верст в Колывань. На фабрике рабочие занимались обтёской «полотенца» чаши (верхней части). После чего в 1832—1843 годах создавалась ёмкости чаши, наносился орнамент и полировалась поверхность яшмы. К этому же времени был найден камень для пьедестала, в котором просверлили отверстие для стального стержня (пирона), соединяющего постамент с ножкой чаши.
-
-				19 февраля 1843 года поезд из впряжённых в особые сани лошадей (от 154-х до 180-ти, в зависимости от рельефа местности) повёз чашу из Колывани в Барнаул. Из Барнаула обоз двинулся на Урал, на Уткинскую пристань реки Чусовая, где чашу подетально загрузили на плоты и отправили водным путём — по Чусовой, далее — по Каме, далее — по Волге бурлаками, и затем по Мариинской водной системе в Неву.
-
-				Через полгода чаша была доставлена в Петербург, однако баржа с ней довольно долго стояла на Фонтанке у Аничкова моста. Тем не менее, каменное изделие выгрузили у набережной Невы рядом с Эрмитажем. В 1845 году вазу было решено поместить в проезд здания Нового Эрмитажа — 4 года для неё сооружали специальный фундамент. Осенью 1849 года 770 рабочих поставили чашу на место. Здесь же к вазе добавили украшения из бронзы — венок из дубовых листьев.</p>
-			    <p class="mb-0">Большая Колыванская ваза является одним из государственных символов Алтайского края. Она изображена на гербе и флаге региона, а также на ордене «За заслуги перед Алтайским краем».</p>
-			  </div>
-			</div>
+  	<div class="container-fluid alert">
+  		<div class="row">
+	  	  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-2">
+	  	  {% if oneProduct.image %}
+	  	  	<img src="{% static oneProduct.image %}" class="img-fluid" alt="{{ oneProduct.name }}">
+	  	  {% endif %}
+	  	  </div>
+		  <div class="col-xs-12 col-sm-8 col-md-8 col-lg-10">
+		    <h5>{{ oneProduct.name }}</h5>
+		    {% if oneProduct.full_description %}
+		    	<p>{{ oneProduct.full_description }}</p>
+		    {% endif %}
+		    <br>
+		    <h6>Автор работы: {{ author.name }}</h6>
+		    <h6>Преобладающий материал: {{ stone.name }}</h6>
+		  </div>
 		</div>
+	</div>
 
-	  	<!-- Optional JavaScript -->
-	    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>
-	</body>
-</html>
-
+{% endblock %}

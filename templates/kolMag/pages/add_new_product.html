@@ -2,40 +2,39 @@
 
 <div class="container-fluid card-deck alert">
 	<div class="row">
-		<form action="saveEdit" method="POST">
+		<form action="saveAdd" method="POST">
 		  <div class="form-row">
 		  	<div class="form-group col-md-12 col-lg-12">
 		      <label for="inputName">Название: </label>
-		      <input type="name" class="form-control form-control-lg" id="inputName" name="inputName" value="{{oneProduct.name}}">
-		      <input type="hidden" name="id" value="{{ oneProduct.id }}">
+		      <input type="name" class="form-control form-control-lg" id="inputName" name="inputName" required>
 		    </div>
 		    <div class="form-group col-md-12 col-lg-12">
 		      <label for="inputFile">Фото изделия: </label>
 		      <!-- Загрузка файла
 		      	<input type="file" class="form-control-file form-control-lg" id="inputFile"> -->
-		      	<input type="nameFile" class="form-control form-control-lg" id="inputFile" name="inputFile" value="{{oneProduct.image}}">
+		      	<input type="nameFile" class="form-control form-control-lg" id="inputFile" name="inputFile" required>
 		    </div>
 		    <div class="form-row">
 			    <div class="form-group col-md-4 col-lg-4">
 			      <label for="inputPrice">Цена: </label>
-			      	<input type="namePrice" class="form-control form-control-lg" id="inputPrice" name="inputPrice" value="{{oneProduct.possible_price}}">
+			      	<input type="namePrice" class="form-control form-control-lg" id="inputPrice" name="inputPrice" pattern="[0-9]+" required>
 			    </div>
 			    <div class="form-group col-md-4 col-lg-4">
 			      <label for="inputLength">Длина: </label>
-			      	<input type="nameLength" class="form-control form-control-lg" id="inputLength" name="inputLength" value="{{oneProduct.size_length}}">
+			      	<input type="nameLength" class="form-control form-control-lg" id="inputLength" name="inputLength" pattern="[0-9]+" required>
 			    </div>
 			    <div class="form-group col-md-4 col-lg-4">
 			      <label for="inputHeight">Высота: </label>
-			      	<input type="nameHeight" class="form-control form-control-lg" id="inputHeight" name="inputHeight" value="{{oneProduct.size_height}}">
+			      	<input type="nameHeight" class="form-control form-control-lg" id="inputHeight" name="inputHeight" pattern="[0-9]+" required>
 			    </div>
 			</div>
 		    <div class="form-group col-md-12 col-lg-12">
 		      <label for="inputDescription">Описание: </label>
-				  <textarea class="form-control" id="inputDescription" name="inputDescription" rows="5">{{oneProduct.description}}</textarea>
+				  <textarea class="form-control" id="inputDescription" name="inputDescription" rows="5" required></textarea>
 		    </div>
 		    <div class="form-group col-md-12 col-lg-12">
 		      <label for="inputFullDescription">Подробное описание: </label>
-				  <textarea class="form-control" id="inputFullDescription" name="inputFullDescription" rows="10">{{oneProduct.full_description}}</textarea>
+				  <textarea class="form-control" id="inputFullDescription" name="inputFullDescription" rows="10" required></textarea>
 		  	</div>
 		  </div>
 		  <div class="form-row">

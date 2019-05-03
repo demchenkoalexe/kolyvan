@@ -3,17 +3,22 @@
 {% load staticfiles %}
 <div class="container-fluid card-deck alert">
 	<div class="row">
+	  {% for item in stoneProduct %}
 	  <div class="card col-xs-12 col-sm-6 col-md-6 col-lg-3">
-		  {% load staticfiles %}
-		  {% if image1 %}
-		  	<img src="{% static image1 %}" class="card-img-top" alt="{{products}}">
+		  {% if item.image %}
+		  	<img src="{% static item.image %}" class="card-img-top" alt="{{item.name}}">
 		  {% endif %}
 		<div class="card-body">
-		  <h5 class="card-title text-center">{{products}}</h5>
-		  <p class="card-text text-center">{{description}}</p>
-		  <a href="product.html" class="btn btn-primary">Подробнее</a>
+		  <h5 class="card-title text-center">{{item.name}}</h5>
+		  <p class="card-text text-center">{{item.description}}</p>
+		  <form action="product" method="POST">
+		  	<input type="hidden" name="author" value="{{ item.id_author_id }}">
+		  	<input type="hidden" name="stone" value="{{ item.id_list_materials_id }}">
+		  	<button type="submit" class="btn btn-primary" name="view" value="{{ item.id }}">Подробнее</button>
+		  </form>
 		</div>
 	  </div>
+	  {% endfor %}
 	</div>
 </div>
 
